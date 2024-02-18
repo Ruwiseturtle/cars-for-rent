@@ -4,7 +4,11 @@ import { requestGetAllCars } from "../../API/cars/gerCars";
 import { requestGetFilteredCars } from "../../API/cars/getFilteredCars";
 import { useEffect } from "react";
 import Card from "../Card/Card";
-import { selectFilter } from "../../redux/cars/carSelectors";
+import {
+  selectFilter,
+  isLoading,
+  isError,
+} from "../../redux/cars/carSelectors";
 import { useSelector } from "react-redux";
 import { PER_PAGE } from "../../services/globalVariables";
 
@@ -13,6 +17,7 @@ const Cars = () => {
   const [page, setPage] = useState(1);
   const [seeLoad, setSeeLoad] = useState(false);
   const filter = useSelector(selectFilter);
+  const loading = useSelector(isLoading);
 
   useEffect(() => {
     if (!filter) {
@@ -37,6 +42,8 @@ const Cars = () => {
 
   return (
     <div className="car-box">
+      {/* {loading && <h3>Loading...</h3>} */}
+
       <ul className="car-catalog">
         {cars &&
           cars.map((car) => (

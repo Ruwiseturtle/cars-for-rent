@@ -6,6 +6,7 @@
   height: 74px;
   margin-left: auto;
   margin-right: auto;
+  z-index: 500;
   /* border: 1px solid rgb(205, 196, 236); */
   /* background: rgba(0, 0, 0, 0.5); */
 }

@@ -75,7 +75,7 @@ const Card = (carProps) => {
       </button>
       <button className="button-learn-more">Learn more</button>
     </div>
-  );
+  )
 };
 
 export default Card;

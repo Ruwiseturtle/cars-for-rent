@@ -9,6 +9,7 @@
   height: 55px;
   max-width: 1184px;
   padding: 15px;
+  z-index: 1999;
   /* border: 1px solid green; */
 }
 
