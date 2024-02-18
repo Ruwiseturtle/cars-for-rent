@@ -9,8 +9,6 @@ import { setFavorite } from "../../redux/cars/carReducer";
 const Card = (carProps) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorite);
-  console.log('фаворитес');
-  console.log(favorites);
   
 
   const handleSubmit = (e) => {

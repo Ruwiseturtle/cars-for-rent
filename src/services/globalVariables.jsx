@@ -25,4 +25,6 @@ export const MODELS = [
   "Land",
 ];
 
+export const PER_PAGE = 12;
+
 export const PRICE = [30, 40, 50, 60, 70, 80];

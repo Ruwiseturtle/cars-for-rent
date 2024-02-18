@@ -14,4 +14,21 @@
   align-content: flex-start;
   gap: 28px;
   list-style: none;
+  margin-bottom: 50px;
+}
+
+.pagination {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.item-pagination:hover {
+  background-color: #3470ff;
 }

@@ -14,6 +14,7 @@ const INITIAL_STATE = {
   // },
   isLoading: false,
   error: null,
+  totalCount: 0,
 };
 
 const carsSlice = createSlice({
@@ -21,8 +22,6 @@ const carsSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     setFavorite: (state, action) => {
-      console.log("актион пейлоад");
-      console.log(action.payload);
       state.favorite = [...action.payload];
     },
     setFilter: (state, action) => {
@@ -38,8 +37,7 @@ const carsSlice = createSlice({
       })
       .addCase(getCarsThunks.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log("в кейсах");
-        console.log(action.payload);
+
         state.cars = [...action.payload];
       })
       .addCase(getCarsThunks.rejected, (state, action) => {
@@ -59,6 +57,7 @@ const carsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       }),
+  //для пагінації
 });
 
 export const { setFavorite, setFilter } = carsSlice.actions;

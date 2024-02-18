@@ -6,22 +6,34 @@ import { useEffect } from "react";
 import Card from "../Card/Card";
 import { selectFilter } from "../../redux/cars/carSelectors";
 import { useSelector } from "react-redux";
+import { PER_PAGE } from "../../services/globalVariables";
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
+  const [page, setPage] = useState(1);
+  const [seeLoad, setSeeLoad] = useState(false);
   const filter = useSelector(selectFilter);
 
   useEffect(() => {
     if (!filter) {
-      requestGetAllCars().then((value) => {
-        setCars([...value]);
+      requestGetAllCars(page).then((value) => {
+        if (value.length === PER_PAGE) {
+          setSeeLoad(true);
+        } else {
+          setSeeLoad(false);
+        }
+        setCars([...cars, ...value]);
       });
     } else {
       requestGetFilteredCars(filter).then((value) => {
         setCars([...value]);
       });
     }
-  }, [filter]);
+  }, [page]);
+
+  const onClickShowMore = () => {
+    setPage(page + 1);
+  };
 
   return (
     <div className="car-box">
@@ -33,6 +45,11 @@ const Cars = () => {
             </li>
           ))}
       </ul>
+      {seeLoad && (
+        <div key="page" className="pagination" onClick={onClickShowMore}>
+          Load more
+        </div>
+      )}
     </div>
   );
 };
