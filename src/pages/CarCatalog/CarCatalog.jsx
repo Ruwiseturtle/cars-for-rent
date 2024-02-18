@@ -1,8 +1,10 @@
 import React from 'react'
 import Filter from '../../components/Filter/Filter';
-import Cars from '../../components/Cars/Cars';
+import Cars from '../../components/CarsList/Cars';
+
 
 const CarCatalog = () => {
+ 
   return (
       <div>
           <Filter/>
