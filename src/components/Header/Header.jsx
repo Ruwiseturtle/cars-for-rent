@@ -22,7 +22,7 @@ const Header = () => {
           Сar catalog
         </NavLink>
       </div>
-      <div className="right-elements">
+      <div className="right-elements">        
         <NavLink
           name="liked"
           className="button-liked"

@@ -1,6 +1,7 @@
 import React from "react";
 import "./Card.css";
 import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavorite } from "../../redux/cars/carSelectors";
 import { setFavorite } from "../../redux/cars/carReducer";
@@ -8,6 +9,9 @@ import { setFavorite } from "../../redux/cars/carReducer";
 const Card = (carProps) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorite);
+  console.log('фаворитес');
+  console.log(favorites);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,25 +39,43 @@ const Card = (carProps) => {
         alt={carProps.car.make}
       />
       <div className="first-box-aboutCar">
-        <div className="left-first-string-aboutCar">
+        <div className="item-box1">
           <p className="text-Make">{carProps.car.make}</p>
           <p className="text-model">{carProps.car.model}</p>
           <p className="text-year">{carProps.car.year}</p>
         </div>
-        <div className="right-first-string-aboutCar">
+        <div className="item-box">
           <p className="text-rentalPrice">{carProps.car.rentalPrice}</p>
+        </div>
+      </div>
+      <div className="second-box-aboutCar">
+        <div className="item-box2">
+          <p>{carProps.car.address.split(",")[1]} |</p>
+          <p>{carProps.car.address.split(",")[2]} |</p>
+          <p>{carProps.car.rentalCompany} |</p>
+
+          {carProps.car.accessories.some(
+            (str) => str.toLocaleLowerCase().indexOf("premium") >= 0
+          ) && <p>Premium</p>}
+        </div>
+        <div className="item-box2">
+          <p>{carProps.car.type}</p>
+          <p>{carProps.car.model}</p>
+          <p>{carProps.car.year}</p>
+          <p>{carProps.car.type}</p>
         </div>
       </div>
       <button
         name={carProps.car.id}
-        className="button-favorite red"
+        className="button-favorite"
         onClick={handleSubmit}
       >
         <FaRegHeart className="iconWhite" />
         {favorites.some((car) => car.car.id === carProps.car.id) && (
-          <FaRegHeart className="iconRed" />
+          <FaHeart className="iconRed" />
         )}
       </button>
+      <button className="button-learn-more">Learn more</button>
     </div>
   );
 };

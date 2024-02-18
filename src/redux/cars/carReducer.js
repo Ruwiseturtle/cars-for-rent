@@ -5,6 +5,13 @@ const INITIAL_STATE = {
   cars: [],
   favorite: [],
   filter: "",
+  //   filter2: '',
+  // filter2: {
+  //   brand: [],
+  //   price: 0,
+  //   from: 0,
+  //   to: 0,
+  // },
   isLoading: false,
   error: null,
 };

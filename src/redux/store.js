@@ -22,7 +22,7 @@ import storage from "redux-persist/lib/storage";
 const favoritesConfig = {
   key: "favorites",
   storage,
-  whitelist: ["favorites"],
+  // whitelist: ["favorites"],
 };
 export const rootReducer = combineReducers({
   carsStore: carsReducer,

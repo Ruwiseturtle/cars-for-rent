@@ -17,8 +17,10 @@
   background-size: cover;
   background-position: center;
   border-radius: 14px;
+  margin-bottom: 14px;
 }
 
+/* *******первый бокс для текста******** */
 .first-box-aboutCar {
   display: flex;
   flex-wrap: wrap;
@@ -27,32 +29,46 @@
   align-content: flex-start;
   gap: 5px;
 }
-.left-first-string-aboutCar {
+
+.item-box1 {
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; */
   align-content: flex-start;
   gap: 5px;
+
+  font-family: Manrope;
+  font-size: 500px;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(18, 20, 23, 1);
+
+  margin-bottom: 8px;
+}
+
+.item-box2 {
+  display: flex;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  align-content: flex-start;
+  gap: 5px;
+
+  font-family: Manrope;
+  font-weight: 400px;
+  font-size: 12px;
+  color: rgba(18, 20, 23, 0.5);
+  margin-bottom: 4px;
 }
 
 .text-Make {
-  color: black;
-  font-family: Manrope;
-  font-size: 500px;
-  font-size: 16px;
+  color: rgba(18, 20, 23, 1);
 }
 .text-model {
-  color: black;
-  font-family: Manrope;
-  font-size: 500px;
-  font-size: 16px;
+  color: #3470ff;
 }
 
 .text-year {
   color: black;
-  font-family: Manrope;
-  font-size: 500px;
-  font-size: 16px;
 }
 
 .text-rentalPrice {
@@ -61,6 +77,15 @@
   font-size: 500px;
   font-size: 16px;
 }
+
+/* *******второй бокс для текста****** */
+.second-box-aboutCar {
+  display: block;
+  color: black;
+}
+
+
+/* ************** */
 .button-favorite {
   position: absolute;
   top: 5px;
@@ -69,9 +94,21 @@
   background-color: transparent;
 
   display: block;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
+}
+
+.button-learn-more {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: 44px;
+  border-radius: 12px;
+  background-color: rgba(52, 112, 255, 1);
+  border: none;
+  cursor: pointer;
+  color: white;
 }
 
 .white {
@@ -82,17 +119,18 @@
   width: 100%;
   height: 100%;
   color: white;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
 }
 
 .iconRed {
-  width: 100%;
-  height: 100%;
+  width: 25px;
+  height: 25px;
 
-  color: red;
+  color: rgb(245, 149, 24);
+  border: rgb(245, 149, 24);
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 5px;
+  right: 5px;
 }
