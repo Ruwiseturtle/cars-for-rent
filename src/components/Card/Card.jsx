@@ -7,19 +7,18 @@ import { selectFavorite } from "../../redux/cars/carSelectors";
 import { setFavorite } from "../../redux/cars/carReducer";
 
 const Card = ({ car, handleClick }) => {
-  // console.log(handleClick);
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorite);
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const clickedId = Number(e.currentTarget.name);
-    let isIDInFavorites = favorites.some((car) => car.car.id === clickedId);
+    let isIDInFavorites = favorites.some((car) => car.id === clickedId);
     let newFavorites = [];
 
     if (isIDInFavorites) {
-      newFavorites = favorites.filter((car) => car.car.id !== clickedId);
+      newFavorites = favorites.filter((car) => car.id !== clickedId);
       dispatch(setFavorite(newFavorites));
     } else {
       newFavorites = [...favorites, car];
@@ -63,7 +62,7 @@ const Card = ({ car, handleClick }) => {
       </div>
       <button name={car.id} className="button-favorite" onClick={handleSubmit}>
         <FaRegHeart className="iconWhite" />
-        {favorites.some((car) => car.car.id === car.id) && (
+        {favorites.some((auto) => auto.id === car.id) && (
           <FaHeart className="iconRed" />
         )}
       </button>

@@ -7,9 +7,10 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const favorites = useSelector(selectFavorite);
-  
-  const handleSubmit = (e) => {};
-  
+
+  const handleSubmit = (e) => {
+    console.log("gggggggggggggggggggggggg");
+  };
 
   return (
     <header className="containerHeader">
@@ -17,7 +18,7 @@ const Header = () => {
         <NavLink className="text" to="/">
           Home
         </NavLink>
-        <NavLink className="text" to="/catalog" >
+        <NavLink className="text" to="/catalog">
           Сar catalog
         </NavLink>
       </div>
@@ -26,7 +27,7 @@ const Header = () => {
           name="liked"
           className="button-liked"
           to="/favorites"
-          onClick={handleSubmit}
+          
         >
           <FaBookmark className="icon-liked" />
         </NavLink>
