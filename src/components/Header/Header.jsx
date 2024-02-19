@@ -3,14 +3,13 @@ import { NavLink } from "react-router-dom";
 import "./HeaderStyled.css";
 import { FaBookmark } from "react-icons/fa";
 import { selectFavorite } from "../../redux/cars/carSelectors";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const favorites = useSelector(selectFavorite);
-
-  const handleSubmit = (e) => {
-    
-  };
+  
+  const handleSubmit = (e) => {};
+  
 
   return (
     <header className="containerHeader">
@@ -18,11 +17,11 @@ const Header = () => {
         <NavLink className="text" to="/">
           Home
         </NavLink>
-        <NavLink className="text" to="/catalog">
+        <NavLink className="text" to="/catalog" >
           Сar catalog
         </NavLink>
       </div>
-      <div className="right-elements">        
+      <div className="right-elements">
         <NavLink
           name="liked"
           className="button-liked"

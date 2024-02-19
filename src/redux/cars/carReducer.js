@@ -4,14 +4,13 @@ import { getCarsThunks, getFilteredCarsThunk } from "./carsThunks";
 const INITIAL_STATE = {
   cars: [],
   favorite: [],
-  filter: "",
-  //   filter2: '',
-  // filter2: {
-  //   brand: [],
-  //   price: 0,
-  //   from: 0,
-  //   to: 0,
-  // },
+
+  filter: {
+    brand: [],
+    price: 0,
+    from: 0,
+    to: 0,
+  },
   isLoading: false,
   error: null,
   totalCount: 0,
@@ -25,6 +24,7 @@ const carsSlice = createSlice({
       state.favorite = [...action.payload];
     },
     setFilter: (state, action) => {
+      console.log(action.payload);
       state.filter = action.payload;
     },
   },
@@ -59,5 +59,5 @@ const carsSlice = createSlice({
   //для пагінації
 });
 
-export const { setFavorite, setFilter } = carsSlice.actions;
+export const { setFavorite, setFilter, setUseFilter } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

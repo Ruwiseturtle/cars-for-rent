@@ -4,3 +4,5 @@ export const selectFilter = (state) => state.carsStore.filter;
 export const getCurrentPage = (state) => state.carsStore.currentPage;
 export const isLoading = (state) => state.carsStore.isLoading;
 export const isError = (state) => state.carsStore.isError;
+export const selectUseFilter = (state) => state.carsStore.useFilter;
+export const setUseFilter = (state) => state.carsStore.setUseFilter;

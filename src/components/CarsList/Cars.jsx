@@ -1,39 +1,38 @@
 import React, { useState } from "react";
 import "./Cars.css";
 import { requestGetAllCars } from "../../API/cars/gerCars";
-import { requestGetFilteredCars } from "../../API/cars/getFilteredCars";
 import { useEffect } from "react";
 import Card from "../Card/Card";
-import {
-  selectFilter,
-  isLoading,
-  isError,
-} from "../../redux/cars/carSelectors";
-import { useSelector } from "react-redux";
 import { PER_PAGE } from "../../services/globalVariables";
+import Modal from "../Modal/Modal";
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [seeLoad, setSeeLoad] = useState(false);
-  const filter = useSelector(selectFilter);
-  const loading = useSelector(isLoading);
+  const [car, setCar] = useState(null);
+
+  //скриваємо модальне вікно
+  const onClose = () => {
+    setCar(null);
+    document.body.style.overflowY = "scroll";
+  };
+
+  const handleClick = (car) => {
+    setCar(car);
+    document.body.style.overflowY = "hidden";
+  };
+  // const loading = useSelector(isLoading);
 
   useEffect(() => {
-    if (!filter) {
-      requestGetAllCars(page).then((value) => {
-        if (value.length === PER_PAGE) {
-          setSeeLoad(true);
-        } else {
-          setSeeLoad(false);
-        }
-        setCars([...cars, ...value]);
-      });
-    } else {
-      requestGetFilteredCars(filter).then((value) => {
-        setCars([...value]);
-      });
-    }
+    requestGetAllCars(page).then((value) => {
+      if (value.length === PER_PAGE) {
+        setSeeLoad(true);
+      } else {
+        setSeeLoad(false);
+      }
+      setCars([...cars, ...value]);
+    });
   }, [page]);
 
   const onClickShowMore = () => {
@@ -48,10 +47,16 @@ const Cars = () => {
         {cars &&
           cars.map((car) => (
             <li key={car.id}>
-              <Card car={car}></Card>
+              <Card car={car} handleClick={handleClick}></Card>
             </li>
           ))}
       </ul>
+      {car && (
+        <Modal
+          onClose={onClose}
+          car={car}
+        ></Modal>
+      )}
       {seeLoad && (
         <div key="page" className="pagination" onClick={onClickShowMore}>
           Load more

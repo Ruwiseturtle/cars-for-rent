@@ -1,28 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Filter.css";
 import { MODELS, PRICE } from "../../services/globalVariables";
-import { useDispatch } from "react-redux";
-import { setFilter } from "../../redux/cars/carReducer";
 
 const Filter = () => {
-  const dispatch = useDispatch();
+  const [filterBrand, setFilterBrand] = useState("");
+  const [filterPrice, setFilterPrice] = useState("");
+  const [filterFrom, setFilterFrom] = useState(0);
+  const [filterTo, setFilterTo] = useState(0);
 
-  const selectByValues = (e) => {
-    dispatch(setFilter(e.target.value));
-    //  dispatch(setFilter(e.target.value));
+  const handleChangeForm = (e) => {
+    e.preventDefault();
+    if (e.target.name === "car-brand") {
+      setFilterBrand(e.currentTarget.elements[0].value);
+    } else if (e.target.name === "car-price") {
+      setFilterPrice(e.currentTarget.elements[1].value);
+    } else if (e.target.name === "from") {
+      setFilterFrom(e.currentTarget.elements[2].value);
+    } else if (e.target.name === "to") {
+      setFilterTo(e.currentTarget.elements[3].value);
+    } else {
+      console.log(e.currentTarget.elements.name);
+    }
   };
+
+  // useEffect(() => {}, [filterBrand]);
 
   return (
     <div className="filter-box">
-      <form>
+      <form onChange={handleChangeForm}>
         <div className="item">
           <label>car-brand</label>
-          <select
-            className="input-item"
-            id="car-brand"
-            name="car-brand"
-            onChange={selectByValues}
-          >
+          <select className="input-item" id="car-brand" name="car-brand">
             {MODELS &&
               MODELS.map((model) => <option key={model}>{model}</option>)}
           </select>
@@ -41,7 +49,7 @@ const Filter = () => {
           <input
             className="input-from"
             type="email"
-            name="email"
+            name="from"
             placeholder="From"
           />
         </div>
@@ -50,15 +58,10 @@ const Filter = () => {
           <label>
             <span className="invisible-text">invisible text</span>
           </label>
-          <input
-            className="input-to"
-            type="email"
-            name="email"
-            placeholder="To"
-          />
+          <input className="input-to" type="email" name="to" placeholder="To" />
         </div>
 
-        <button className="button" type="submit">
+        <button type="submit" name="button-search" className="button">
           Search
         </button>
       </form>
