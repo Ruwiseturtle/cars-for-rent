@@ -12,6 +12,7 @@ const Modal = ({ onClose, car }) => {
       window.removeEventListener("keydown", handleKeyDown);
     };
 
+    //функция
     function handleKeyDown(e) {
       if (e.code === "Escape") {
         onClose();
