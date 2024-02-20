@@ -39,17 +39,13 @@ const Modal = ({ onClose, car }) => {
           <div className="modal-item-box2">
             <p>{car.address.split(",")[1]} |</p>
             <p>{car.address.split(",")[2]} |</p>
-            <p>{car.rentalCompany} |</p>
-
-            {car.accessories.some(
-              (str) => str.toLocaleLowerCase().indexOf("premium") >= 0
-            ) && <p>Premium</p>}
+            <p>id: {car.id} |</p>
+            <p>year: {car.year} |</p>
+            <p>type: {car.type} </p>
           </div>
           <div className="modal-item-box2">
-            <p>{car.type}</p>
-            <p>{car.model}</p>
-            <p>{car.year}</p>
-            <p>{car.type}</p>
+            <p>Fuel Consumption: {car.fuelConsumption} |</p>
+            <p>Engine Size: {car.engineSize}</p>
           </div>
         </div>
         <div className="modal-third-box-aboutCar">
@@ -61,10 +57,46 @@ const Modal = ({ onClose, car }) => {
           </p>
         </div>
         <div className="modal-sixth-box-aboutCar">
-          <p className="modal-list-accesories">
-            Accesories and functionalities:
-          </p>
+          <div className="modal-list-accesories">
+            {car.accessories.map((accessorie) => (
+              <p className="accesories">{accessorie} |</p>
+            ))}
+          </div>
+          <div className="modal-list-functionalities">
+            {car.functionalities.map((functionalitie) => (
+              <p className="accesories">{functionalitie} |</p>
+            ))}
+          </div>
         </div>
+        <div className="rental-conditions">Rental Conditions:</div>
+        <div>
+          <div className="rentalConditions-box">
+            <p className="min-age-text">
+              Minimum age:
+              <span className="min-age-number">
+                {car.rentalConditions.slice(12, 15)}
+              </span>
+            </p>
+            <p className="min-age-text">{car.rentalConditions.slice(16, 31)}</p>
+          </div>
+          <div className="box-numbers">
+            <p className="security">sssssssssss</p>
+            <p className="milleage">
+              Milleage:
+              <span className="numbers">{car.mileage}</span>
+            </p>
+            <p className="price">
+              Price:
+              <span className="numbers">{car.rentalPrice} </span>
+            </p>
+          </div>
+          <button className="rental-car" type="button">
+            Rental car
+          </button>
+
+          <p></p>
+        </div>
+        <div>zzzz</div>
       </div>
     </div>
   );

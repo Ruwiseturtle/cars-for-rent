@@ -32,3 +32,8 @@
 .item-pagination:hover {
   background-color: #3470ff;
 }
+
+.loading {
+  color: white;
+  font-size: 200px;
+}
