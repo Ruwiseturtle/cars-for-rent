@@ -8,9 +8,6 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const favorites = useSelector(selectFavorite);
 
-  const handleSubmit = (e) => {
-    console.log("gggggggggggggggggggggggg");
-  };
 
   return (
     <header className="containerHeader">

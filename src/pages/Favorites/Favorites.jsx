@@ -2,12 +2,25 @@ import "./Favorites.css";
 import { selectFavorite } from "../../redux/cars/carSelectors";
 import { useSelector } from "react-redux";
 import "../../components/Card/Card.css";
+import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import "../HomePage/HomePage";
+import Modal from "../../components/Modal/Modal";
 
 const Favorites = () => {
   const favorites = useSelector(selectFavorite);
-
+  const [favoriteCar, setfavoriteCar] = useState(null);
+  
+   const onClose = () => {
+     setfavoriteCar(null);
+     document.body.style.overflowY = "scroll";
+  };
+  
+   const handleClick = (car) => {
+     setfavoriteCar(car);
+     document.body.style.overflowY = "hidden";
+  };
+  
   return (
     <div className="favorites-box">
       <ul className="favorites-catalog">
@@ -47,7 +60,10 @@ const Favorites = () => {
                     <p>{car.type}</p>
                   </div>
                 </div>
-                <button className="button-learn-more">Learn more</button>
+                <button className="button-learn-more" onClick={handleClick}>
+                  Learn more
+                </button>
+                {favoriteCar && <Modal onClose={onClose} car={car}></Modal>}
               </div>
             </li>
           ))}

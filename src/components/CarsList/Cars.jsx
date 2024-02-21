@@ -6,15 +6,19 @@ import Card from "../Card/Card";
 import { PER_PAGE } from "../../services/globalVariables";
 import Modal from "../Modal/Modal";
 import { useSelector } from "react-redux";
-import { isLoading } from '../../redux/cars/carSelectors';
+import {
+  selectorIsLoading,
+  selectorIsError,
+} from "../../redux/cars/carSelectors";
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [seeLoad, setSeeLoad] = useState(false);
   const [car, setCar] = useState(null);
-  const loading = useSelector(isLoading);
- 
+  const loading = useSelector(selectorIsLoading);
+  const error = useSelector(selectorIsError);
+
   const onClose = () => {
     setCar(null);
     document.body.style.overflowY = "scroll";
@@ -25,7 +29,7 @@ const Cars = () => {
     document.body.style.overflowY = "hidden";
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     requestGetAllCars(page).then((value) => {
       if (value.length === PER_PAGE) {
         setSeeLoad(true);
@@ -42,8 +46,6 @@ const Cars = () => {
 
   return (
     <div className="car-box">
-      {loading && <h3 className='loading'>Loading...</h3>}
-
       <ul className="car-catalog">
         {cars &&
           cars.map((car) => (

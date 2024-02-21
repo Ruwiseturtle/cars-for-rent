@@ -3,8 +3,7 @@ import { useEffect } from "react";
 import "../Card/Card";
 
 const Modal = ({ onClose, car }) => {
-  console.log("машина");
-  console.log(car);
+  
 
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
