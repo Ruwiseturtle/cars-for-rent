@@ -35,39 +35,135 @@
 /************ стили шрифта *********/
 .style-text1 {
   font-family: Manrope;
-  font-weight: 500px;
+  font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: rgba(18, 20, 23, 1);
+  padding: 0px;
 }
 .style-text2 {
   font-family: Manrope;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 12px;
   line-height: 18px;
   color: rgba(18, 20, 23, 0.5);
+  padding: 0px;
 }
 .style-text3 {
   font-family: Manrope;
-  font-weight: 400px;
+  font-weight: 400;
   font-size: 14px;
   line-height: 20px;
   color: rgba(18, 20, 23, 1);
+  padding: 0px;
 }
 .style-text4 {
   font-family: Montserrat;
-  font-weight: 600px;
+  font-weight: 600;
   font-size: 12px;
   line-height: 18px;
   color: rgba(54, 53, 53, 1);
+  padding: 0px;
+}
+
+.style-text5 {
+  font-family: Manrope;
+  font-weight: 500;
+  font-size: 14px;
+  color: rgba(18, 20, 23, 1);
+  line-height: 20px;
+}
+/* ******************** */
+
+.info-car-box {
+  list-style: none;
+}
+
+.list-item {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: flex-start;
 }
 
 .blue {
   color: rgba(52, 112, 255, 1);
 }
 
-/* ******************** */
+.info1 {
+  margin-bottom: 8px;
+}
+.info3 {
+  margin-bottom: 14px;
+}
 
-.info-car-box {
-  list-style: none;
+.info4 {
+  margin-bottom: 24px;
+}
+
+.info5 {
+  margin-bottom: 8px;
+}
+
+.info7 {
+  margin-bottom: 24px;
+}
+
+.info8 {
+  margin-bottom: 8px;
+}
+
+.info9 {
+  margin-bottom: 22px;
+}
+
+.num-minimum-age {
+  margin-right: 8px;
+  padding: 7px 7px 7px 3px;
+}
+
+.info11 {
+  gap: 11px;
+}
+
+.Minimum-age {
+  padding: 7px 0px 7px 7px;
+}
+
+.rental-condition {
+  padding: 7px 7px 7px 7px;
+  margin-right: 8px;
+}
+.mileage {
+  padding: 7px 0px 7px 7px;
+}
+
+.num-mileage {
+  padding: 7px 7px 7px 3px;
+  margin-right: 8px;
+}
+.price {
+  padding: 7px 0px 7px 7px;
+}
+.rentalPrice {
+  padding: 7px 7px 7px 3px;
+}
+
+.btn-rental-car {
+  width: 168px;
+  height: 44px;
+  background-color: rgba(52, 112, 255, 1);
+  border-radius: 12px;
+  color: white;
+  border: none;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.btn-rental-car:hover,
+.btn-rental-car:focus {
+  background-color: rgba(52, 112, 220, 1);
 }
