@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkcars_for_rent=self.webpackChunkcars_for_rent||[]).push([[412],{412:(e,s,t)=>{t.r(s),t.d(s,{default:()=>r});t(60);var a=t(496);const r=()=>(0,a.jsxs)("div",{className:"box-text",children:[(0,a.jsx)("h1",{className:"title-text",children:"Fast & Easy way to rent a car"}),(0,a.jsx)("h2",{className:"description-text",children:"A fleet of more than 200 car classes and for every pocket allows us to provide website clients with the best and most profitable offers for car booking and rental."})]})}}]);
-//# sourceMappingURL=412.39cd8629.chunk.js.map
