@@ -7,7 +7,8 @@ const Filter = () => {
   const [filterPrice, setFilterPrice] = useState("");
   const [filterFrom, setFilterFrom] = useState(0);
   const [filterTo, setFilterTo] = useState(0);
-
+  const [test, setTest] = useState(0);
+  
   const handleChangeForm = (e) => {
     e.preventDefault();
     if (e.target.name === "car-brand") {
