@@ -1,23 +1,28 @@
-import React, { useState } from "react";
-import "./Cars.css";
+import React, { useState, useEffect } from "react";
 import { requestGetAllCars } from "../../API/cars/gerCars";
-import { useEffect } from "react";
 import Card from "../Card/Card";
 import { PER_PAGE } from "../../services/globalVariables";
 import Modal from "../Modal/Modal";
 import { useSelector } from "react-redux";
+import "./Cars.css";
 import {
   selectorIsLoading,
   selectorIsError,
+  selectFilter,
 } from "../../redux/cars/carSelectors";
+
 
 const Cars = () => {
   const [cars, setCars] = useState([]);
   const [page, setPage] = useState(1);
   const [seeLoad, setSeeLoad] = useState(false);
   const [car, setCar] = useState(null);
+  const filter = useSelector(selectFilter);
   const loading = useSelector(selectorIsLoading);
   const error = useSelector(selectorIsError);
+
+  console.log('xxxxxxxxxxx');
+  console.log(filter);
 
   const onClose = () => {
     setCar(null);

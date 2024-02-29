@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavorite } from "../../redux/cars/carSelectors";
-import { setFavorite } from "../../redux/cars/carReducer";
+import { setFavorite } from "../../redux/cars/carsFavoritesReducer";
 
 const Card = ({ car, handleClick }) => {
   const dispatch = useDispatch();

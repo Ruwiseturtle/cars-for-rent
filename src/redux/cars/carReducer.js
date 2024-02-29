@@ -3,14 +3,6 @@ import { getCarsThunks, getFilteredCarsThunk } from "./carsThunks";
 
 const INITIAL_STATE = {
   cars: [],
-  favorite: [],
-
-  filter: {
-    brand: [],
-    price: 0,
-    from: 0,
-    to: 0,
-  },
   isLoading: false,
   error: null,
   totalCount: 0,
@@ -19,15 +11,7 @@ const INITIAL_STATE = {
 const carsSlice = createSlice({
   name: "cars",
   initialState: INITIAL_STATE,
-  reducers: {
-    setFavorite: (state, action) => {
-      state.favorite = [...action.payload];
-    },
-    setFilter: (state, action) => {
-      console.log(action.payload);
-      state.filter = action.payload;
-    },
-  },
+ 
   extraReducers: (builder) =>
     builder
       //кейси для отримання каталогу машин
@@ -59,5 +43,5 @@ const carsSlice = createSlice({
   //для пагінації
 });
 
-export const { setFavorite, setFilter, setUseFilter } = carsSlice.actions;
+export const { setFilter } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

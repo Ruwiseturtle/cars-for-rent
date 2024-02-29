@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Filter.css";
 import { MODELS, PRICE } from "../../services/globalVariables";
+import { useDispatch } from "react-redux";
+import { setFilter } from "../../redux/cars/filterReducer";
 
 const Filter = () => {
   const [filterBrand, setFilterBrand] = useState("");
   const [filterPrice, setFilterPrice] = useState("");
   const [filterFrom, setFilterFrom] = useState(0);
   const [filterTo, setFilterTo] = useState(0);
-  const [test, setTest] = useState(0);
-  
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+     dispatch(setFilter({ brand:'', price:0, from:0, to:0 }));
+  });
+
   const handleChangeForm = (e) => {
     e.preventDefault();
     if (e.target.name === "car-brand") {
@@ -19,12 +25,13 @@ const Filter = () => {
       setFilterFrom(e.currentTarget.elements[2].value);
     } else if (e.target.name === "to") {
       setFilterTo(e.currentTarget.elements[3].value);
-    } else {
-      console.log(e.currentTarget.elements.name);
     }
   };
 
-  // useEffect(() => {}, [filterBrand]);
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(setFilter({ filterBrand, filterPrice, filterFrom, filterTo }));
+  };
 
   return (
     <div className="filter-box">
@@ -47,22 +54,22 @@ const Filter = () => {
 
         <div className="item">
           <label>Car mileage/km </label>
-          <input
-            className="input-from"
-            type="email"
-            name="from"
-            placeholder="From"
-          />
+          <input className="input-from" name="from" placeholder="From" />
         </div>
 
         <div className="item">
           <label>
             <span className="invisible-text">invisible text</span>
           </label>
-          <input className="input-to" type="email" name="to" placeholder="To" />
+          <input className="input-to" name="to" placeholder="To" />
         </div>
 
-        <button type="submit" name="button-search" className="button">
+        <button
+          type="submit"
+          name="button-search"
+          className="button"
+          onClick={handleClick}
+        >
           Search
         </button>
       </form>

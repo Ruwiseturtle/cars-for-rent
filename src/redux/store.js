@@ -1,5 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { carsReducer } from "./cars/carReducer";
+import favoriteReducer from "./cars/carsFavoritesReducer";
+import filterReducer from './cars/filterReducer';
 
 import {
   persistStore,
@@ -22,10 +24,12 @@ import storage from "redux-persist/lib/storage";
 const favoritesConfig = {
   key: "favorites",
   storage,
-  // blacklist: ["filter"],
+  whitelist: ["favoriteCarsStore"],
 };
 export const rootReducer = combineReducers({
   carsStore: carsReducer,
+  favoriteCarsStore: favoriteReducer,
+  filterStore: filterReducer,
   //   auth: persistReducer(authConfig, authReducer),
 });
 

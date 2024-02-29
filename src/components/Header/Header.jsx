@@ -3,11 +3,16 @@ import { NavLink } from "react-router-dom";
 import "./HeaderStyled.css";
 import { FaBookmark } from "react-icons/fa";
 import { selectFavorite } from "../../redux/cars/carSelectors";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setFilter } from "../../redux/cars/filterReducer";
 
 const Header = () => {
   const favorites = useSelector(selectFavorite);
+  const dispatch = useDispatch();
 
+  const handleClick = () => {
+      dispatch(setFilter({ brand: "", price: 0, from: 0, to: 0 }));
+  }
 
   return (
     <header className="containerHeader">
@@ -15,7 +20,7 @@ const Header = () => {
         <NavLink className="text" to="/">
           Home
         </NavLink>
-        <NavLink className="text" to="/catalog">
+        <NavLink className="text" to="/catalog" onClick={handleClick}>
           Сar catalog
         </NavLink>
       </div>

@@ -4,6 +4,7 @@
   "homepage": "https://ruwiseturtle.github.io/cars-for-rent/",
   "private": true,
   "dependencies": {
+    "@redux-devtools/extension": "^3.3.0",
     "@reduxjs/toolkit": "^2.2.1",
     "axios": "^1.6.7",
     "react": "^18.2.0",
