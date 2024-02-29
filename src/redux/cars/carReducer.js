@@ -3,15 +3,20 @@ import { getCarsThunks, getFilteredCarsThunk } from "./carsThunks";
 
 const INITIAL_STATE = {
   cars: [],
+  currentPage: 1,
+  totalCount: 0,
   isLoading: false,
   error: null,
-  totalCount: 0,
 };
 
 const carsSlice = createSlice({
   name: "cars",
   initialState: INITIAL_STATE,
- 
+  reducers: {
+    setCurrentPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+  },
   extraReducers: (builder) =>
     builder
       //кейси для отримання каталогу машин
@@ -43,5 +48,5 @@ const carsSlice = createSlice({
   //для пагінації
 });
 
-export const { setFilter } = carsSlice.actions;
+export const { setFilter, setCurrentPage } = carsSlice.actions;
 export const carsReducer = carsSlice.reducer;

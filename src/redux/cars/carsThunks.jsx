@@ -5,10 +5,10 @@ import { requestGetFilteredCars } from "../../API/cars/getFilteredCars";
 //санка для отримання даних по усіх машин
 export const getCarsThunks = createAsyncThunk(
   "cars/get",
-  async (_, thunkAPI) => {
+  async (page, thunkAPI) => {
     try {
-      const carsData = await requestGetAllCars();
-      console.log("запит на отримання машин");
+      const carsData = await requestGetAllCars(page);
+
       return carsData; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

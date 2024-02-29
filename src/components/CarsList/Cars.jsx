@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { requestGetAllCars } from "../../API/cars/gerCars";
 import Card from "../Card/Card";
-import { PER_PAGE } from "../../services/globalVariables";
 import Modal from "../Modal/Modal";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import "./Cars.css";
 import {
-  selectorIsLoading,
-  selectorIsError,
   selectFilter,
+  selectGetCars,
+  selectCurrentPage,
 } from "../../redux/cars/carSelectors";
-
+import { getCarsThunks } from "../../redux/cars/carsThunks";
+import { PER_PAGE } from "../../services/globalVariables";
+import { setCurrentPage } from "../../redux/cars/carReducer";
 
 const Cars = () => {
-  const [cars, setCars] = useState([]);
-  const [page, setPage] = useState(1);
-  const [seeLoad, setSeeLoad] = useState(false);
+  // const [cars, setCars] = useState([]);
   const [car, setCar] = useState(null);
+  const [seeLoad, setSeeLoad] = useState(true);
+  const cars = useSelector(selectGetCars);
+  const currentPage = useSelector(selectCurrentPage);
   const filter = useSelector(selectFilter);
-  const loading = useSelector(selectorIsLoading);
-  const error = useSelector(selectorIsError);
-
-  console.log('xxxxxxxxxxx');
-  console.log(filter);
+  const dispatch = useDispatch();
 
   const onClose = () => {
     setCar(null);
@@ -34,19 +31,22 @@ const Cars = () => {
     document.body.style.overflowY = "hidden";
   };
 
+
   useEffect(() => {
-    requestGetAllCars(page).then((value) => {
-      if (value.length === PER_PAGE) {
-        setSeeLoad(true);
-      } else {
-        setSeeLoad(false);
-      }
-      setCars([...cars, ...value]);
-    });
-  }, [page]);
+    if (cars.length < PER_PAGE) {
+      setSeeLoad(false);
+    }
+    else {
+      setSeeLoad(true);
+    }
+  });
+
+  useEffect(() => {
+      dispatch(getCarsThunks(currentPage));
+  }, [dispatch, currentPage, seeLoad]);
 
   const onClickShowMore = () => {
-    setPage(page + 1);
+    dispatch(setCurrentPage(currentPage + 1));
   };
 
   return (

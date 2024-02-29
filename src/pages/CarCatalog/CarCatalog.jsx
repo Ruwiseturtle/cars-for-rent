@@ -4,7 +4,6 @@ import Cars from "../../components/CarsList/Cars";
 
 const CarCatalog = () => {
 
-  
   return (
     <div>
       <Filter />

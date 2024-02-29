@@ -5,14 +5,19 @@ import { FaBookmark } from "react-icons/fa";
 import { selectFavorite } from "../../redux/cars/carSelectors";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "../../redux/cars/filterReducer";
+import { selectCurrentPage } from "../../redux/cars/carSelectors";
+import { setCurrentPage } from "../../redux/cars/carReducer";
 
 const Header = () => {
   const favorites = useSelector(selectFavorite);
+  const currentPage = useSelector(selectCurrentPage);
   const dispatch = useDispatch();
 
   const handleClick = () => {
-      dispatch(setFilter({ brand: "", price: 0, from: 0, to: 0 }));
-  }
+    dispatch(setCurrentPage(1));
+    dispatch(setFilter({ brand: "", price: 0, from: 0, to: 0 }));
+    
+  };
 
   return (
     <header className="containerHeader">
@@ -25,12 +30,7 @@ const Header = () => {
         </NavLink>
       </div>
       <div className="right-elements">
-        <NavLink
-          name="liked"
-          className="button-liked"
-          to="/favorites"
-          
-        >
+        <NavLink name="liked" className="button-liked" to="/favorites">
           <FaBookmark className="icon-liked" />
         </NavLink>
         <p className="counter-likes">{favorites.length}</p>
