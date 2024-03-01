@@ -1,7 +1,7 @@
 import axios from "axios";
 import { PER_PAGE } from "../../services/globalVariables";
 
-axios.defaults.baseURL = "https://6538cb3ca543859d1bb1ed9f.mockapi.io/";
+axios.defaults.baseURL = "https://6538cb3ca543859d1bb1ed9f.mockapi.io/"; //begin filter
 
 export const requestGetFilteredCars = async (currentPage, brand) => {
   try {
