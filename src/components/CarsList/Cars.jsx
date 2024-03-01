@@ -36,21 +36,22 @@ const Cars = () => {
     document.body.style.overflowY = "hidden";
   };
 
+
   useEffect(() => {
     if (cars.length < PER_PAGE) {
       setSeeLoad(false);
     } else {
       setSeeLoad(true);
     }
-  });
-
-  useEffect(() => {
+    
     if (!filterFlag) {
       dispatch(getCarsThunks(currentPage));
     } else {
-      dispatch(getFilteredCarsThunk({ currentPage:currentPage, brand:filter.brand }));
+      dispatch(
+        getFilteredCarsThunk({ currentPage: currentPage, brand: filter.brand })
+      );
     }
-  }, [dispatch, currentPage, seeLoad, filterFlag, filter.brand]);
+  }, [dispatch, currentPage, cars.length, seeLoad, filterFlag, filter.brand]);
 
   const onClickShowMore = () => {
     dispatch(setCurrentPage(currentPage + 1));
