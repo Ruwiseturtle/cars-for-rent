@@ -648,5 +648,343 @@
         "address": "321 Example Lane, Kharkiv, Ukraine",
         "rentalConditions": "Minimum age: 21\nValid driver's license\nSecurity deposit and insurance required",
         "mileage": 6234
+    },
+    {
+        "id": 95841,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95842,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95843,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95844,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95845,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95846,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95847,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95848,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95849,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95850,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95851,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95852,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
+    },
+      {
+        "id": 95853,
+        "year": 2019,
+        "make": "Volvo",
+        "model": "XC90",
+        "type": "SUV",
+        "img": "https://ftp.goit.study/img/cars-test-task/volvo_xc90.jpeg",
+        "description": "The Volvo XC90 is a premium SUV that offers exceptional safety, advanced technology, and elegant design.",
+        "fuelConsumption": "8.3",
+        "engineSize": "2.0L 4-cylinder",
+        "accessories": [
+            "Nappa leather seats",
+            "Bowers & Wilkins premium sound system",
+            "Head-up display"
+        ],
+        "functionalities": [
+            "IntelliSafe advanced safety features",
+            "Pilot Assist semi-autonomous driving",
+            "Four-zone automatic climate control"
+        ],
+        "rentalPrice": "$50",
+        "rentalCompany": "Premium Auto Rentals",
+        "address": "456 Example Avenue, Lviv, Ukraine",
+        "rentalConditions": "Minimum age: 21\nValid driver's license\nProof of insurance required",
+        "mileage": 5352
     }
 ]

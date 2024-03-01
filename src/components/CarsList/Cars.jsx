@@ -7,8 +7,12 @@ import {
   selectFilter,
   selectGetCars,
   selectCurrentPage,
+  selectFilterFlag,
 } from "../../redux/cars/carSelectors";
-import { getCarsThunks } from "../../redux/cars/carsThunks";
+import {
+  getCarsThunks,
+  getFilteredCarsThunk,
+} from "../../redux/cars/carsThunks";
 import { PER_PAGE } from "../../services/globalVariables";
 import { setCurrentPage } from "../../redux/cars/carReducer";
 
@@ -19,6 +23,7 @@ const Cars = () => {
   const cars = useSelector(selectGetCars);
   const currentPage = useSelector(selectCurrentPage);
   const filter = useSelector(selectFilter);
+  const filterFlag = useSelector(selectFilterFlag);
   const dispatch = useDispatch();
 
   const onClose = () => {
@@ -31,19 +36,21 @@ const Cars = () => {
     document.body.style.overflowY = "hidden";
   };
 
-
   useEffect(() => {
     if (cars.length < PER_PAGE) {
       setSeeLoad(false);
-    }
-    else {
+    } else {
       setSeeLoad(true);
     }
   });
 
   useEffect(() => {
+    if (!filterFlag) {
       dispatch(getCarsThunks(currentPage));
-  }, [dispatch, currentPage, seeLoad]);
+    } else {
+      dispatch(getFilteredCarsThunk({ currentPage:currentPage, brand:filter.brand }));
+    }
+  }, [dispatch, currentPage, seeLoad, filterFlag, filter.brand]);
 
   const onClickShowMore = () => {
     dispatch(setCurrentPage(currentPage + 1));

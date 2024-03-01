@@ -2,40 +2,51 @@ import React, { useState, useEffect } from "react";
 import "./Filter.css";
 import { MODELS, PRICE } from "../../services/globalVariables";
 import { useDispatch } from "react-redux";
-import { setFilter } from "../../redux/cars/filterReducer";
+import { setFilter, setFilterFlag } from "../../redux/cars/filterReducer";
+import { setCurrentPage } from "../../redux/cars/carReducer";
 
 const Filter = () => {
-  const [filterBrand, setFilterBrand] = useState("");
-  const [filterPrice, setFilterPrice] = useState("");
+  const [filterBrand, setFilterBrand] = useState(MODELS[0]);
+  const [filterPrice, setFilterPrice] = useState(PRICE[0]);
   const [filterFrom, setFilterFrom] = useState(0);
   const [filterTo, setFilterTo] = useState(0);
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
-     dispatch(setFilter({ brand:'', price:0, from:0, to:0 }));
+    dispatch(
+      setFilter({
+        brand: filterBrand,
+        price: filterPrice,
+        from: filterFrom,
+        to: filterTo,
+      })
+    );
+    dispatch(setCurrentPage(1));
   });
 
-  const handleChangeForm = (e) => {
+  const handleClickForm = (e) => {
     e.preventDefault();
-    if (e.target.name === "car-brand") {
+
+    if (e.target.name === "button-search") {
       setFilterBrand(e.currentTarget.elements[0].value);
-    } else if (e.target.name === "car-price") {
       setFilterPrice(e.currentTarget.elements[1].value);
-    } else if (e.target.name === "from") {
       setFilterFrom(e.currentTarget.elements[2].value);
-    } else if (e.target.name === "to") {
       setFilterTo(e.currentTarget.elements[3].value);
+      e.currentTarget.elements[2].value = "";
+      e.currentTarget.elements[3].value = "";
     }
   };
 
   const handleClick = (e) => {
     e.preventDefault();
     dispatch(setFilter({ filterBrand, filterPrice, filterFrom, filterTo }));
+    dispatch(setFilterFlag(true));
   };
 
   return (
     <div className="filter-box">
-      <form onChange={handleChangeForm}>
+      <form onClick={handleClickForm}>
         <div className="item">
           <label>car-brand</label>
           <select className="input-item" id="car-brand" name="car-brand">

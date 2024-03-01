@@ -1,12 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { MODELS, PRICE } from "../../services/globalVariables";
 
 const INITIAL_STATE = {
   filter: {
-    brand: "",
-    price: 0,
+    brand: MODELS[0],
+    price: PRICE[0],
     from: 0,
     to: 0,
   },
+  filterFlag: false,
 };
 
 const filterSlice = createSlice({
@@ -14,11 +16,14 @@ const filterSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     setFilter: (state, action) => {
-      console.log(action.payload);
       state.filter = action.payload;
-    }
+    },
+    setFilterFlag: (state, action) => {
+      state.filterFlag = action.payload;
+    },
   },
+
 });
 
-export const { setFilter } = filterSlice.actions;
+export const { setFilter, setFilterFlag } = filterSlice.actions;
 export default filterSlice.reducer;

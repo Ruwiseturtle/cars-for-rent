@@ -32,20 +32,19 @@ const carsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       })
-      //для фільтрування
+      //кейси для отримання відфільтрованого каталогу машин по бренду
       .addCase(getFilteredCarsThunk.pending, (state) => {
         state.isLoading = true;
         state.error = null;
       })
       .addCase(getFilteredCarsThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.filter = action.filter;
+        state.cars = [...action.payload];
       })
       .addCase(getFilteredCarsThunk.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       }),
-  //для пагінації
 });
 
 export const { setFilter, setCurrentPage } = carsSlice.actions;
