@@ -2,6 +2,7 @@ import axios from "axios";
 
 axios.defaults.baseURL = "https://6538cb3ca543859d1bb1ed9f.mockapi.io/";
 export const MODELS = [
+  '',
   "Buick",
   "Volvo",
   "HUMMER",
@@ -27,4 +28,4 @@ export const MODELS = [
 
 export const PER_PAGE = 12;
 
-export const PRICE = [30, 40, 50, 60, 70, 80];
+export const PRICE = [0, 30, 40, 50, 60, 70, 80];

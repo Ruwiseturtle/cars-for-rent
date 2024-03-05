@@ -18,6 +18,7 @@ const Header = () => {
     dispatch(setFilterFlag(false));
   };
 
+
   return (
     <header className="containerHeader">
       <div className="left-elements">

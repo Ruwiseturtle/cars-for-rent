@@ -8,7 +8,7 @@ const INITIAL_STATE = {
     from: 0,
     to: 0,
   },
-  filterFlag: false,
+  filterFlag: false
 };
 
 const filterSlice = createSlice({
@@ -20,9 +20,8 @@ const filterSlice = createSlice({
     },
     setFilterFlag: (state, action) => {
       state.filterFlag = action.payload;
-    },
+    }
   },
-
 });
 
 export const { setFilter, setFilterFlag } = filterSlice.actions;

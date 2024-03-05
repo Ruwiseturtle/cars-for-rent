@@ -11,7 +11,6 @@ const Filter = () => {
   const [filterFrom, setFilterFrom] = useState(0);
   const [filterTo, setFilterTo] = useState(0);
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
     dispatch(
@@ -23,6 +22,7 @@ const Filter = () => {
       })
     );
     dispatch(setCurrentPage(1));
+    dispatch(setFilterFlag(false));
   });
 
   const handleClickForm = (e) => {
@@ -30,9 +30,9 @@ const Filter = () => {
 
     if (e.target.name === "button-search") {
       setFilterBrand(e.currentTarget.elements[0].value);
-      setFilterPrice(e.currentTarget.elements[1].value);
-      setFilterFrom(e.currentTarget.elements[2].value);
-      setFilterTo(e.currentTarget.elements[3].value);
+      setFilterPrice(Number(e.currentTarget.elements[1].value));
+      setFilterFrom(Number(e.currentTarget.elements[2].value));
+      setFilterTo(Number(e.currentTarget.elements[3].value));
       e.currentTarget.elements[2].value = "";
       e.currentTarget.elements[3].value = "";
     }
@@ -40,7 +40,14 @@ const Filter = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(setFilter({ filterBrand, filterPrice, filterFrom, filterTo }));
+    dispatch(
+      setFilter({
+        brand: filterBrand,
+        price: filterPrice,
+        from: filterFrom,
+        to: filterTo,
+      })
+    );
     dispatch(setFilterFlag(true));
   };
 
@@ -50,8 +57,15 @@ const Filter = () => {
         <div className="item">
           <label>car-brand</label>
           <select className="input-item" id="car-brand" name="car-brand">
+            <option>{MODELS[0]}</option>
             {MODELS &&
-              MODELS.map((model) => <option key={model}>{model}</option>)}
+              MODELS.map((model, index) => {
+                if (index > 0) {
+                  return <option key={model}>{model}</option>;
+                } else {
+                  return null;
+                }
+              })}
           </select>
         </div>
 

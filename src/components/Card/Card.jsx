@@ -10,7 +10,6 @@ const Card = ({ car, handleClick }) => {
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavorite);
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const clickedId = Number(e.currentTarget.name);

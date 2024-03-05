@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from "react";
-import Card from "../Card/Card";
-import Modal from "../Modal/Modal";
 import { useSelector, useDispatch } from "react-redux";
-import "./Cars.css";
-import {
-  selectFilter,
-  selectGetCars,
-  selectCurrentPage,
-  selectFilterFlag,
-} from "../../redux/cars/carSelectors";
-import {
-  getCarsThunks,
-  getFilteredCarsThunk,
-} from "../../redux/cars/carsThunks";
-import { PER_PAGE } from "../../services/globalVariables";
 import { setCurrentPage } from "../../redux/cars/carReducer";
+import { setFilterFlag } from "../../redux/cars/filterReducer";
+import * as selectors from "../../redux/cars/carSelectors";
+import * as thunk from "../../redux/cars/carsThunks";
+import { PER_PAGE } from "../../services/globalVariables";
+import Modal from "../Modal/Modal";
+import Card from "../Card/Card";
+import "./Cars.css";
 
 const Cars = () => {
   // const [cars, setCars] = useState([]);
   const [car, setCar] = useState(null);
   const [seeLoad, setSeeLoad] = useState(true);
-  const cars = useSelector(selectGetCars);
-  const currentPage = useSelector(selectCurrentPage);
-  const filter = useSelector(selectFilter);
-  const filterFlag = useSelector(selectFilterFlag);
+  let cars = useSelector(selectors.selectGetCars);
+  const currentPage = useSelector(selectors.selectCurrentPage);
+  const filter = useSelector(selectors.selectFilter);
+  const filterFlag = useSelector(selectors.selectFilterFlag);
   const dispatch = useDispatch();
+  let filteredCars = filterCars();
 
   const onClose = () => {
     setCar(null);
@@ -36,22 +30,64 @@ const Cars = () => {
     document.body.style.overflowY = "hidden";
   };
 
-
   useEffect(() => {
     if (cars.length < PER_PAGE) {
       setSeeLoad(false);
     } else {
       setSeeLoad(true);
     }
-    
+
     if (!filterFlag) {
-      dispatch(getCarsThunks(currentPage));
-    } else {
+      dispatch(thunk.getCarsThunks(currentPage));
+    } else if (filterFlag && filterFlag.brand !== "") {
       dispatch(
-        getFilteredCarsThunk({ currentPage: currentPage, brand: filter.brand })
+        thunk.getFilteredCarsThunk({
+          currentPage: currentPage,
+          brand: filter.brand,
+        })
       );
     }
-  }, [dispatch, currentPage, cars.length, seeLoad, filterFlag, filter.brand]);
+  }, [dispatch, currentPage, cars, filter, filterFlag]);
+
+  function filterCars() {
+    //якщо у фільтрі вибрана тільки ціна
+    if (filter.price > 0 && filter.from === 0 && filter.to === 0) {
+      return cars.map((car) => {
+        if (Number(car.rentalPrice.slice(1)) === filter.price) {
+          return car;
+        } else {
+          return null;
+        }
+      });
+    }
+    //якщо вибраний тільки діапазон пробігу
+    else if (filter.price === 0 && filter.from > 0 && filter.to > 0) {
+      return cars.map((car) => {
+        if (filter.from >= car.mileage && filter.to <= car.mileage) {
+          return car;
+        } else {
+          return null;
+        }
+      });
+    } //якщо вибрана ціна і діапазон пробігу
+    else if (filter.price > 0 && filter.from > 0 && filter.to > 0) {
+      return cars.map((car) => {
+        if (
+          filter.from >= car.mileage &&
+          filter.to <= car.mileage &&
+          Number(car.rentalPrice.slice(1)) === filter.price
+        ) {
+          return car;
+        } else {
+          return null;
+        }
+      });
+    } //якщо параметри фільтра скинуто
+    else {
+      setFilterFlag(false);
+      return cars;
+    }
+  }
 
   const onClickShowMore = () => {
     dispatch(setCurrentPage(currentPage + 1));
@@ -61,7 +97,7 @@ const Cars = () => {
     <div className="car-box">
       <ul className="car-catalog">
         {cars &&
-          cars.map((car) => (
+          filteredCars.map((car) => (
             <li key={car.id}>
               <Card car={car} handleClick={handleClick}></Card>
             </li>
