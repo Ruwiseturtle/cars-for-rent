@@ -39,12 +39,8 @@ const Cars = () => {
 
     if (!filterFlag) {
       dispatch(thunk.getCarsThunks(currentPage));
-    } else if (filterFlag && filterFlag.brand !== "") {
-      dispatch(
-        thunk.getFilteredCarsThunk({
-          currentPage: currentPage,
-          brand: filter.brand,
-        })
+    } else if (filterFlag) {
+      dispatch(thunk.getFilteredCarsThunk({currentPage: currentPage, brand: filter.brand})
       );
     }
   }, [dispatch, currentPage, cars, filter, filterFlag]);

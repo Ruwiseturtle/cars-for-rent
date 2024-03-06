@@ -79,14 +79,24 @@ const Filter = () => {
 
         <div className="item">
           <label>Car mileage/km </label>
-          <input className="input-from" name="from" placeholder="From" />
+          <input
+            className="input-from"
+            type="number"
+            name="from"
+            placeholder="From"
+          />
         </div>
 
         <div className="item">
           <label>
             <span className="invisible-text">invisible text</span>
           </label>
-          <input className="input-to" name="to" placeholder="To" />
+          <input
+            className="input-to"
+            type="number"
+            name="to"
+            placeholder="To"
+          />
         </div>
 
         <button
