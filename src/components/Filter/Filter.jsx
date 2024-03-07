@@ -13,6 +13,7 @@ const Filter = () => {
 
   const handleClickForm = (e) => {
     e.preventDefault();
+    console.log("мыняэмо значення фільтра");
     if (e.target.name === "button-search") {
       setFilterBrand(e.currentTarget.elements[0].value);
       setFilterPrice(Number(e.currentTarget.elements[1].value));
@@ -25,6 +26,7 @@ const Filter = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
+    console.log("кнопка фыльтра");
     dispatch(
       setFilter({
         brand: filterBrand,

@@ -7,7 +7,7 @@ import { PER_PAGE } from "../../services/globalVariables";
 import Modal from "../Modal/Modal";
 import Card from "../Card/Card";
 import "./Cars.css";
-import { isActiveFilter } from "../../services/functions";
+import { isActiveFilter, filterCars } from "../../services/functions";
 
 const Cars = () => {
   const [car, setCar] = useState(null);
@@ -16,8 +16,10 @@ const Cars = () => {
   const currentPage = useSelector(selectors.selectCurrentPage);
   const filter = useSelector(selectors.selectFilter);
   const dispatch = useDispatch();
-  let filteredCars = filterCars();
+  let filteredCars = filterCars1();
 
+  console.log('ccccccccccc');
+  console.log(filter.from);
 
   const onClose = () => {
     setCar(null);
@@ -30,52 +32,52 @@ const Cars = () => {
   };
 
   useEffect(() => {
-    
     if (!isActiveFilter(filter)) {
       cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
       dispatch(thunk.getCarsThunks(currentPage));
     } else if (isActiveFilter(filter) && filter.brand) {
       dispatch(thunk.getFilteredCarsThunk(filter.brand));
     }
-  }, [dispatch, filter, currentPage]);
+  }, [dispatch, cars.length, filter, currentPage]);
 
-  function filterCars() {
-    //якщо у фільтрі вибрана тільки ціна
-    if (filter.price > 0 && filter.from === 0 && filter.to === 0) {
-      return cars.map((car) => {
-        if (Number(car.rentalPrice.slice(1)) === filter.price) {
-          return car;
-        } else {
-          return null;
-        }
-      });
-    }
-    //якщо вибраний тільки діапазон пробігу
-    else if (filter.price === 0 && filter.from > 0 && filter.to > 0) {
-      return cars.map((car) => {
-        if (filter.from >= car.mileage && filter.to <= car.mileage) {
-          return car;
-        } else {
-          return null;
-        }
-      });
-    } //якщо вибрана ціна і діапазон пробігу
-    else if (filter.price > 0 && filter.from > 0 && filter.to > 0) {
-      return cars.map((car) => {
-        if (
-          filter.from >= car.mileage &&
-          filter.to <= car.mileage &&
-          Number(car.rentalPrice.slice(1)) === filter.price
-        ) {
-          return car;
-        } else {
-          return null;
-        }
-      });
-    } //якщо параметри фільтра скинуто
-    else {
-      return cars;
-    }
+  function filterCars1() {
+    
+      if (filter.price > 0 && filter.from === 0 && filter.to === 0) {
+        //якщо у фільтрі вибрана тільки ціна
+        return cars.map((car) => {
+          if (Number(car.rentalPrice.slice(1)) === filter.price) {
+            return car;
+          } else {
+            return null;
+          }
+        });
+      }
+      //якщо вибраний тільки діапазон пробігу
+      else if (filter.price === 0 && filter.from > 0 && filter.to > 0) {
+        return cars.map((car) => {
+          if (filter.from >= car.mileage && filter.to <= car.mileage) {
+            return car;
+          } else {
+            return null;
+          }
+        });
+      } //якщо вибрана ціна і діапазон пробігу
+      else if (filter.price > 0 && filter.from > 0 && filter.to > 0) {
+        return cars.map((car) => {
+          if (
+            filter.from >= car.mileage &&
+            filter.to <= car.mileage &&
+            Number(car.rentalPrice.slice(1)) === filter.price
+          ) {
+            return car;
+          } else {
+            return null;
+          }
+        });
+      } //якщо параметри фільтра скинуто
+      else {
+        return cars;
+      }
   }
 
   const onClickShowMore = () => {
