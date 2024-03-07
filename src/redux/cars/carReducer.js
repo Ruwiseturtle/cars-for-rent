@@ -26,7 +26,7 @@ const carsSlice = createSlice({
       })
       .addCase(getCarsThunks.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.cars = [...action.payload];
+        state.cars = action.payload;
       })
       .addCase(getCarsThunks.rejected, (state, action) => {
         state.isLoading = false;

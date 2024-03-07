@@ -8,7 +8,8 @@ export const getCarsThunks = createAsyncThunk(
   async (page, thunkAPI) => {
     try {
       const carsData = await requestGetAllCars(page);
-
+      console.log("получили данные неотфильтрованные машины");
+      console.log(carsData);
       return carsData; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,9 +20,11 @@ export const getCarsThunks = createAsyncThunk(
 //санка для отримання даних по усіх машин
 export const getFilteredCarsThunk = createAsyncThunk(
   "cars/getFiltered",
-  async ({ currentPage, brand }, thunkAPI) => {
+  async (brand, thunkAPI) => {
     try {
-      const carsData = await requestGetFilteredCars(currentPage, brand);
+      const carsData = await requestGetFilteredCars(brand);
+      console.log("!!!получили данные отфильтрованные машины");
+      console.log(carsData);
       return carsData; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

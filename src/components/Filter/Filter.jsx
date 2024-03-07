@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Filter.css";
 import { MODELS, PRICE } from "../../services/globalVariables";
 import { useDispatch } from "react-redux";
-import { setFilter, setFilterFlag } from "../../redux/cars/filterReducer";
-import { setCurrentPage } from "../../redux/cars/carReducer";
+import { setFilter } from "../../redux/cars/filterReducer";
 
 const Filter = () => {
   const [filterBrand, setFilterBrand] = useState(MODELS[0]);
@@ -12,22 +11,8 @@ const Filter = () => {
   const [filterTo, setFilterTo] = useState(0);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(
-      setFilter({
-        brand: filterBrand,
-        price: filterPrice,
-        from: filterFrom,
-        to: filterTo,
-      })
-    );
-    dispatch(setCurrentPage(1));
-    dispatch(setFilterFlag(false));
-  });
-
   const handleClickForm = (e) => {
     e.preventDefault();
-
     if (e.target.name === "button-search") {
       setFilterBrand(e.currentTarget.elements[0].value);
       setFilterPrice(Number(e.currentTarget.elements[1].value));
@@ -48,7 +33,6 @@ const Filter = () => {
         to: filterTo,
       })
     );
-    dispatch(setFilterFlag(true));
   };
 
   return (

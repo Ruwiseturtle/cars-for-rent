@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentPage } from "../../redux/cars/carReducer";
-import { setFilterFlag } from "../../redux/cars/filterReducer";
 import * as selectors from "../../redux/cars/carSelectors";
 import * as thunk from "../../redux/cars/carsThunks";
 import { PER_PAGE } from "../../services/globalVariables";
 import Modal from "../Modal/Modal";
 import Card from "../Card/Card";
 import "./Cars.css";
+import { isActiveFilter } from "../../services/functions";
 
 const Cars = () => {
-  // const [cars, setCars] = useState([]);
   const [car, setCar] = useState(null);
   const [seeLoad, setSeeLoad] = useState(true);
   let cars = useSelector(selectors.selectGetCars);
   const currentPage = useSelector(selectors.selectCurrentPage);
   const filter = useSelector(selectors.selectFilter);
-  const filterFlag = useSelector(selectors.selectFilterFlag);
   const dispatch = useDispatch();
   let filteredCars = filterCars();
+
 
   const onClose = () => {
     setCar(null);
@@ -31,19 +30,14 @@ const Cars = () => {
   };
 
   useEffect(() => {
-    if (cars.length < PER_PAGE) {
-      setSeeLoad(false);
-    } else {
-      setSeeLoad(true);
-    }
-
-    if (!filterFlag) {
+    
+    if (!isActiveFilter(filter)) {
+      cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
       dispatch(thunk.getCarsThunks(currentPage));
-    } else if (filterFlag) {
-      dispatch(thunk.getFilteredCarsThunk({currentPage: currentPage, brand: filter.brand})
-      );
+    } else if (isActiveFilter(filter) && filter.brand) {
+      dispatch(thunk.getFilteredCarsThunk(filter.brand));
     }
-  }, [dispatch, currentPage, cars, filter, filterFlag]);
+  }, [dispatch, filter, currentPage]);
 
   function filterCars() {
     //якщо у фільтрі вибрана тільки ціна
@@ -80,7 +74,6 @@ const Cars = () => {
       });
     } //якщо параметри фільтра скинуто
     else {
-      setFilterFlag(false);
       return cars;
     }
   }
@@ -92,12 +85,11 @@ const Cars = () => {
   return (
     <div className="car-box">
       <ul className="car-catalog">
-        {cars &&
-          filteredCars.map((car) => (
-            <li key={car.id}>
-              <Card car={car} handleClick={handleClick}></Card>
-            </li>
-          ))}
+        {filteredCars.map((car) => (
+          <li key={car.id}>
+            <Card car={car} handleClick={handleClick}></Card>
+          </li>
+        ))}
       </ul>
       {car && <Modal onClose={onClose} car={car}></Modal>}
       {seeLoad && (

@@ -4,7 +4,7 @@ import "./HeaderStyled.css";
 import { FaBookmark } from "react-icons/fa";
 import { selectFavorite } from "../../redux/cars/carSelectors";
 import { useSelector, useDispatch } from "react-redux";
-import { setFilter, setFilterFlag } from "../../redux/cars/filterReducer";
+import { setFilter } from "../../redux/cars/filterReducer";
 import { setCurrentPage } from "../../redux/cars/carReducer";
 import { MODELS, PRICE } from "../../services/globalVariables";
 
@@ -15,9 +15,7 @@ const Header = () => {
   const handleClick = () => {
     dispatch(setCurrentPage(1));
     dispatch(setFilter({ brand: MODELS[0], price: PRICE[0], from: 0, to: 0 }));
-    dispatch(setFilterFlag(false));
   };
-
 
   return (
     <header className="containerHeader">

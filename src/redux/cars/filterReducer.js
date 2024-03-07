@@ -7,8 +7,7 @@ const INITIAL_STATE = {
     price: PRICE[0],
     from: 0,
     to: 0,
-  },
-  filterFlag: false
+  }
 };
 
 const filterSlice = createSlice({
@@ -16,13 +15,10 @@ const filterSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     setFilter: (state, action) => {
-      state.filter = action.payload;
+      state.filter = { ...action.payload };
     },
-    setFilterFlag: (state, action) => {
-      state.filterFlag = action.payload;
-    }
   },
 });
 
-export const { setFilter, setFilterFlag } = filterSlice.actions;
+export const { setFilter } = filterSlice.actions;
 export default filterSlice.reducer;
