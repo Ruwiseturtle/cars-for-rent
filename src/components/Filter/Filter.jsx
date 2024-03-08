@@ -13,20 +13,17 @@ const Filter = () => {
 
   const handleClickForm = (e) => {
     e.preventDefault();
-    console.log("мыняэмо значення фільтра");
+    console.log("!!!");
     if (e.target.name === "button-search") {
       setFilterBrand(e.currentTarget.elements[0].value);
       setFilterPrice(Number(e.currentTarget.elements[1].value));
       setFilterFrom(Number(e.currentTarget.elements[2].value));
       setFilterTo(Number(e.currentTarget.elements[3].value));
-      e.currentTarget.elements[2].value = "";
-      e.currentTarget.elements[3].value = "";
     }
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("кнопка фыльтра");
     dispatch(
       setFilter({
         brand: filterBrand,
@@ -43,7 +40,7 @@ const Filter = () => {
         <div className="item">
           <label>car-brand</label>
           <select className="input-item" id="car-brand" name="car-brand">
-            <option>{MODELS[0]}</option>
+            <option>{""}</option>
             {MODELS &&
               MODELS.map((model, index) => {
                 if (index > 0) {

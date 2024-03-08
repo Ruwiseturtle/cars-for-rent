@@ -19,7 +19,7 @@ const carsSlice = createSlice({
   },
   extraReducers: (builder) =>
     builder
-      //кейси для отримання каталогу машин
+      //кейси для отримання каталогу машин одныэъ сторінки
       .addCase(getCarsThunks.pending, (state) => {
         state.isLoading = true;
         state.error = null;
