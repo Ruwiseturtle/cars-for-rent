@@ -8,6 +8,7 @@ export const getCarsThunks = createAsyncThunk(
   async (page, thunkAPI) => {
     try {
       const carsData = await requestGetAllCars(page);
+      // console.log(carsData);
       return carsData; // ЦЕ БУДЕ ЗАПИСАНО В ЕКШИН ПЕЙЛОАД
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

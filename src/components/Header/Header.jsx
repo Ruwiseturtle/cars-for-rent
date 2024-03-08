@@ -1,4 +1,4 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "./HeaderStyled.css";
 import { FaBookmark } from "react-icons/fa";
@@ -13,11 +13,11 @@ const Header = () => {
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
-  useEffect(() => { }, [filter]);
-  
+  useEffect(() => {}, [filter]);
+
   const handleClick = () => {
     dispatch(setCurrentPage(1));
-    dispatch(setFilter({ brand: '', price: 0, from: 0, to: 0 }));
+    dispatch(setFilter({ brand: "", price: 0, from: 0, to: 0 }));
   };
 
   return (

@@ -5,42 +5,56 @@ import { useDispatch } from "react-redux";
 import { setFilter } from "../../redux/cars/filterReducer";
 
 const Filter = () => {
-  const [filterBrand, setFilterBrand] = useState(MODELS[0]);
-  const [filterPrice, setFilterPrice] = useState(PRICE[0]);
-  const [filterFrom, setFilterFrom] = useState(0);
-  const [filterTo, setFilterTo] = useState(0);
+  const [filter, setFilterState] = useState({
+    brand: MODELS[0],
+    price: PRICE[0],
+    from: 0,
+    to: 0,
+  });
   const dispatch = useDispatch();
 
-  const handleClickForm = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
-    console.log("!!!");
-    if (e.target.name === "button-search") {
-      setFilterBrand(e.currentTarget.elements[0].value);
-      setFilterPrice(Number(e.currentTarget.elements[1].value));
-      setFilterFrom(Number(e.currentTarget.elements[2].value));
-      setFilterTo(Number(e.currentTarget.elements[3].value));
-    }
+
+    switch (e.currentTarget.name) {
+      case "car-brand":
+        setFilterState({ ...filter, brand: e.currentTarget.value });
+        console.log(filter);
+        break;
+      case "car-price":
+       setFilterState({ ...filter, price: Number(e.currentTarget.value) });
+       console.log(filter);
+        break;
+      case "from":
+        setFilterState({ ...filter, from: Number(e.currentTarget.value) });
+        console.log(filter);
+        break;
+      case "to":
+        setFilterState({ ...filter, to: Number(e.currentTarget.value) });
+        console.log(filter);
+        break;
+      default:
+        console.log(`фильтр: ${filter}`);
+    }    
   };
 
   const handleClick = (e) => {
     e.preventDefault();
-    dispatch(
-      setFilter({
-        brand: filterBrand,
-        price: filterPrice,
-        from: filterFrom,
-        to: filterTo,
-      })
-    );
+    dispatch(setFilter(filter));
   };
 
   return (
     <div className="filter-box">
-      <form onClick={handleClickForm}>
+      <form>
         <div className="item">
           <label>car-brand</label>
-          <select className="input-item" id="car-brand" name="car-brand">
-            <option>{""}</option>
+          <select
+            className="input-item"
+            id="car-brand"
+            name="car-brand"
+            onChange={handleChange}
+          >
+            <option onChange={handleChange}></option>
             {MODELS &&
               MODELS.map((model, index) => {
                 if (index > 0) {
@@ -54,7 +68,12 @@ const Filter = () => {
 
         <div className="item">
           <label>Price/1hour </label>
-          <select className="input-item" id="car-price" name="car-price">
+          <select
+            className="input-item"
+            id="car-price"
+            name="car-price"
+            onChange={handleChange}
+          >
             {PRICE &&
               PRICE.map((price) => <option key={price}>{price}</option>)}
           </select>
@@ -67,6 +86,7 @@ const Filter = () => {
             type="number"
             name="from"
             placeholder="From"
+            onChange={handleChange}
           />
         </div>
 
@@ -79,6 +99,7 @@ const Filter = () => {
             type="number"
             name="to"
             placeholder="To"
+            onChange={handleChange}
           />
         </div>
 
