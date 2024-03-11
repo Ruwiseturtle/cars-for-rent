@@ -20,25 +20,25 @@ const Cars = () => {
   let isfilterActive = isActiveFilter(filter);
 
   useEffect(() => {
-   switch (isfilterActive) {
+    switch (isfilterActive) {
       //фільтр неактивний
       case false:
         cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
-         dispatch(thunk.getCarsThunks(currentPage));
+        dispatch(thunk.getCarsThunks(currentPage));
         break;
       //фільтр активний
       case true:
         setSeeLoad(false);
         if (filter.brand) {
-           dispatch(thunk.getFilteredCarsThunk(filter.brand));
+          dispatch(thunk.getFilteredCarsThunk(filter.brand));
         } else {
-           dispatch(thunk.getFilteredCarsThunk(""));
+          dispatch(thunk.getFilteredCarsThunk(""));
         }
         break;
       default:
         break;
     }
-  }, [dispatch, filter, currentPage, cars.length]);
+  }, [dispatch, filter, currentPage, cars.length, isfilterActive]);
 
   
 
