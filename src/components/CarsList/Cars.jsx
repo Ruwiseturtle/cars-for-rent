@@ -40,26 +40,7 @@ const Cars = () => {
     }
   }, [dispatch, filter, currentPage, cars.length]);
 
-  async function getCarsAll() {
-    switch (isfilterActive) {
-      //фільтр неактивний
-      case false:
-        cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
-        await dispatch(thunk.getCarsThunks(currentPage));
-        break;
-      //фільтр активний
-      case true:
-        setSeeLoad(false);
-        if (filter.brand) {
-          await dispatch(thunk.getFilteredCarsThunk(filter.brand));
-        } else {
-          await dispatch(thunk.getFilteredCarsThunk(""));
-        }
-        break;
-      default:
-        break;
-    }
-  }
+  
 
   const onClose = () => {
     setCar(null);
