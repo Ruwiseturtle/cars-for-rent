@@ -32,7 +32,6 @@ const Cars = () => {
         break;
       //фільтр активний
       case true:
-        console.log("шаг два");
         setSeeLoad(false);
         if (filter.brand) {
           await dispatch(thunk.getFilteredCarsThunk(filter.brand));
@@ -56,7 +55,6 @@ const Cars = () => {
   };
 
   const onClickShowMore = () => {
-    console.log(currentPage);
     dispatch(setCurrentPage(currentPage + 1));
     console.log(currentPage);
   };
