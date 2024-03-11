@@ -13,11 +13,37 @@ const Cars = () => {
   const [car, setCar] = useState(null);
   const [seeLoad, setSeeLoad] = useState(true);
   const dispatch = useDispatch();
-  const cars = useSelector(selectors.selectGetCars);
   const currentPage = useSelector(selectors.selectCurrentPage);
   const filter = useSelector(selectors.selectFilter);
+  const cars = useSelector(selectors.selectGetCars);
   let filteredCars = filterCars(filter, cars);
   let isfilterActive = isActiveFilter(filter);
+
+  useEffect(() => {
+    getCarsAll();
+  }, [dispatch, filter, currentPage, cars.length]);
+
+  async function getCarsAll() {
+    switch (isfilterActive) {
+      //фільтр неактивний
+      case false:
+        cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
+        await dispatch(thunk.getCarsThunks(currentPage));
+        break;
+      //фільтр активний
+      case true:
+        console.log("шаг два");
+        setSeeLoad(false);
+        if (filter.brand) {
+          await dispatch(thunk.getFilteredCarsThunk(filter.brand));
+        } else {
+          await dispatch(thunk.getFilteredCarsThunk(""));
+        }
+        break;
+      default:
+        break;
+    }
+  }
 
   const onClose = () => {
     setCar(null);
@@ -29,45 +55,20 @@ const Cars = () => {
     document.body.style.overflowY = "hidden";
   };
 
-  useEffect(() => {
-    // console.log(`первый юзеффект: ${cars}`);
-    dispatch(thunk.getCarsThunks(1));
-    setSeeLoad(true);
-    // console.log("выходим из юзееффекта");
-  }, [dispatch]);
-
-  useEffect(() => {
-    // console.log("второй юзееффект");
-    // console.log(`cars: ${cars}`);
-    // console.log(`активен ли фильтр: ${isfilterActive}`);
-    // console.log(`cars.lenght: ${cars.length}`);
-
-    if (!isfilterActive) {
-      // console.log("шаг 1");
-      cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
-      dispatch(thunk.getCarsThunks(currentPage));
-    } else if (isfilterActive && filter.brand) {
-      // console.log("шаг 2");
-      dispatch(thunk.getFilteredCarsThunk(filter.brand));
-    } else {
-      // console.log("шаг 3");
-      dispatch(thunk.getFilteredCarsThunk(""));
-    }
-  }, [dispatch, filter]);
-
   const onClickShowMore = () => {
+    console.log(currentPage);
     dispatch(setCurrentPage(currentPage + 1));
+    console.log(currentPage);
   };
 
   return (
     <div className="car-box">
       <ul className="car-catalog">
-        {filteredCars &&
-          filteredCars.map((car) => (
-            <li key={car.id}>
-              <Card car={car} handleClick={handleClick}></Card>
-            </li>
-          ))}
+        {filteredCars.map((car) => (
+          <li key={car.id}>
+            <Card car={car} handleClick={handleClick}></Card>
+          </li>
+        ))}
       </ul>
       {car && <Modal onClose={onClose} car={car}></Modal>}
       {seeLoad && (

@@ -3,9 +3,7 @@ export function isActiveFilter(filter) {
 }
 
 export function filterCars(filter, cars) {
-  // if (cars.length === 0) {
-  //   return cars;
-  // }
+  if (cars.length === 0) { return cars;}
 
   if (isActiveFilter(filter)) {
     return cars

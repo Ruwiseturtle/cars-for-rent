@@ -4,7 +4,6 @@ import { getCarsThunks, getFilteredCarsThunk } from "./carsThunks";
 const INITIAL_STATE = {
   cars: [],
   currentPage: 1,
-  totalCount: 0,
   isLoading: false,
   error: null,
 };

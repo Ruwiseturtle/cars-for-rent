@@ -3,7 +3,7 @@ import { requestGetAllCars } from "../../API/cars/gerCars";
 import { requestGetFilteredCars } from "../../API/cars/getFilteredCars";
 
 //санка для отримання даних по усіх машин однієї сторінки
-export const getCarsThunks = createAsyncThunk(
+export const getCarsThunks =createAsyncThunk(
   "cars/get",
   async (page, thunkAPI) => {
     try {

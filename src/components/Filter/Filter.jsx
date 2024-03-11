@@ -19,23 +19,19 @@ const Filter = () => {
     switch (e.currentTarget.name) {
       case "car-brand":
         setFilterState({ ...filter, brand: e.currentTarget.value });
-        console.log(filter);
         break;
       case "car-price":
-       setFilterState({ ...filter, price: Number(e.currentTarget.value) });
-       console.log(filter);
+        setFilterState({ ...filter, price: Number(e.currentTarget.value) });
         break;
       case "from":
         setFilterState({ ...filter, from: Number(e.currentTarget.value) });
-        console.log(filter);
         break;
       case "to":
         setFilterState({ ...filter, to: Number(e.currentTarget.value) });
-        console.log(filter);
         break;
       default:
-        console.log(`фильтр: ${filter}`);
-    }    
+        break;
+    }
   };
 
   const handleClick = (e) => {
