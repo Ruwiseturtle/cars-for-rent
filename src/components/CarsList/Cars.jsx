@@ -20,7 +20,24 @@ const Cars = () => {
   let isfilterActive = isActiveFilter(filter);
 
   useEffect(() => {
-    getCarsAll();
+   switch (isfilterActive) {
+      //фільтр неактивний
+      case false:
+        cars.length < PER_PAGE ? setSeeLoad(false) : setSeeLoad(true);
+         dispatch(thunk.getCarsThunks(currentPage));
+        break;
+      //фільтр активний
+      case true:
+        setSeeLoad(false);
+        if (filter.brand) {
+           dispatch(thunk.getFilteredCarsThunk(filter.brand));
+        } else {
+           dispatch(thunk.getFilteredCarsThunk(""));
+        }
+        break;
+      default:
+        break;
+    }
   }, [dispatch, filter, currentPage, cars.length]);
 
   async function getCarsAll() {
