@@ -1,28 +1,28 @@
 {
   "files": {
     "main.css": "/cars-for-rent/static/css/main.eec12995.css",
-    "main.js": "/cars-for-rent/static/js/main.73512f16.js",
+    "main.js": "/cars-for-rent/static/js/main.3ebc68b4.js",
     "static/css/412.da9c4d86.chunk.css": "/cars-for-rent/static/css/412.da9c4d86.chunk.css",
     "static/js/412.3275cff6.chunk.js": "/cars-for-rent/static/js/412.3275cff6.chunk.js",
     "static/css/24.bb7aad91.chunk.css": "/cars-for-rent/static/css/24.bb7aad91.chunk.css",
-    "static/js/24.6ffd0b98.chunk.js": "/cars-for-rent/static/js/24.6ffd0b98.chunk.js",
+    "static/js/24.bedc6e4b.chunk.js": "/cars-for-rent/static/js/24.bedc6e4b.chunk.js",
     "static/css/128.73cf11fb.chunk.css": "/cars-for-rent/static/css/128.73cf11fb.chunk.css",
     "static/js/128.26461895.chunk.js": "/cars-for-rent/static/js/128.26461895.chunk.js",
     "static/js/840.14ce0c20.chunk.js": "/cars-for-rent/static/js/840.14ce0c20.chunk.js",
     "static/media/pexelsJayPizzle3770875.jpg": "/cars-for-rent/static/media/pexelsJayPizzle3770875.2654765726776836dead.jpg",
     "index.html": "/cars-for-rent/index.html",
     "main.eec12995.css.map": "/cars-for-rent/static/css/main.eec12995.css.map",
-    "main.73512f16.js.map": "/cars-for-rent/static/js/main.73512f16.js.map",
+    "main.3ebc68b4.js.map": "/cars-for-rent/static/js/main.3ebc68b4.js.map",
     "412.da9c4d86.chunk.css.map": "/cars-for-rent/static/css/412.da9c4d86.chunk.css.map",
     "412.3275cff6.chunk.js.map": "/cars-for-rent/static/js/412.3275cff6.chunk.js.map",
     "24.bb7aad91.chunk.css.map": "/cars-for-rent/static/css/24.bb7aad91.chunk.css.map",
-    "24.6ffd0b98.chunk.js.map": "/cars-for-rent/static/js/24.6ffd0b98.chunk.js.map",
+    "24.bedc6e4b.chunk.js.map": "/cars-for-rent/static/js/24.bedc6e4b.chunk.js.map",
     "128.73cf11fb.chunk.css.map": "/cars-for-rent/static/css/128.73cf11fb.chunk.css.map",
     "128.26461895.chunk.js.map": "/cars-for-rent/static/js/128.26461895.chunk.js.map",
     "840.14ce0c20.chunk.js.map": "/cars-for-rent/static/js/840.14ce0c20.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eec12995.css",
-    "static/js/main.73512f16.js"
+    "static/js/main.3ebc68b4.js"
   ]
 }
