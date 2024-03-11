@@ -56,7 +56,6 @@ const Cars = () => {
 
   const onClickShowMore = () => {
     dispatch(setCurrentPage(currentPage + 1));
-    console.log(currentPage);
   };
 
   return (
