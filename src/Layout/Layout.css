@@ -6,3 +6,28 @@
   align-items: center;
   justify-content: center;
 }
+
+.main-container {
+  /* border: 1px solid red; */
+  position: fixed;
+
+  display: block;
+  margin-top: 180px;
+  max-width: 1184px;
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  overflow: hidden;
+}
+
+.scroll-container {
+  /* border: 1px solid green; */
+  /* width: calc(100%+17px); */
+  max-width: calc(1184px+17px);
+  height: 100%;
+  overflow-y: auto;
+  border: none;
+  margin-right: -17px;
+  -ms-overflow-style: none;
+  padding-bottom: 200px;
+}

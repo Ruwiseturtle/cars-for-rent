@@ -2,15 +2,19 @@ import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 import { Suspense } from "react";
 import "./Layout.css";
-import { Loading } from '../components/Loading/Loading';
+import { Loading } from "../components/Loading/Loading";
 
 const Layout = () => {
   return (
     <div className="containerMain">
       <Header />
-      <Suspense fallback={<Loading/>}>
-        <Outlet />
-      </Suspense>
+      <div className="main-container">
+        <div class="scroll-container">
+          <Suspense fallback={<Loading />}>
+            <Outlet />
+          </Suspense>
+        </div>
+      </div>
     </div>
   );
 };
