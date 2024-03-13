@@ -85,4 +85,5 @@ input {
   border-radius: 15px;
   background-color: #3470ff;
   color: white;
+  cursor: pointer;
 }

@@ -9,7 +9,7 @@ const Layout = () => {
     <div className="containerMain">
       <Header />
       <div className="main-container">
-        <div class="scroll-container">
+        <div className="scroll-container">
           <Suspense fallback={<Loading />}>
             <Outlet />
           </Suspense>

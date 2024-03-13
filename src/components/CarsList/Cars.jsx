@@ -59,15 +59,15 @@ const Cars = () => {
   return (
     <div className="car-box">
       <ul className="car-catalog">
-        {filteredCars.map((car) => (
-          <li key={car.id}>
-            <Card car={car} handleClick={handleClick}></Card>
-          </li>
-        ))}
+        
+          {filteredCars.map((car) => (
+            <Card key={car.id} car={car} handleClick={handleClick}></Card>
+          ))}
+        
       </ul>
       {car && <Modal onClose={onClose} car={car}></Modal>}
       {seeLoad && (
-        <div key="page" className="pagination" onClick={onClickShowMore}>
+        <div className="pagination" onClick={onClickShowMore}>
           Load more
         </div>
       )}

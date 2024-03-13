@@ -52,12 +52,16 @@ const Modal = ({ onClose, car }) => {
           </li>
           <li className="list-item info6">
             {car.accessories.map((accessorie) => (
-              <p className="style-text2">{accessorie}&nbsp; |&nbsp;</p>
+              <p key={accessorie} className="style-text2">
+                {accessorie}&nbsp; |&nbsp;
+              </p>
             ))}
           </li>
           <li className="list-item info7">
             {car.functionalities.map((functionalitie) => (
-              <p className="style-text2">{functionalitie} &nbsp;|&nbsp;</p>
+              <p key={functionalitie} className="style-text2">
+                {functionalitie} &nbsp;|&nbsp;
+              </p>
             ))}
           </li>
           <li className="list-item info8">
