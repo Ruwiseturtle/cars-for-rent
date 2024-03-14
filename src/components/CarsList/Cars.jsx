@@ -18,6 +18,8 @@ const Cars = () => {
   const cars = useSelector(selectors.selectGetCars);
   let filteredCars = filterCars(filter, cars);
   let isfilterActive = isActiveFilter(filter);
+  // const loading = useSelector(selectors.selectStatusLoading);
+  // const error = useSelector(selectors.selectStatusError);
 
   useEffect(() => {
     switch (isfilterActive) {
@@ -40,8 +42,6 @@ const Cars = () => {
     }
   }, [dispatch, filter, currentPage, cars.length, isfilterActive]);
 
-  
-
   const onClose = () => {
     setCar(null);
     document.body.style.overflowY = "scroll";
@@ -59,11 +59,9 @@ const Cars = () => {
   return (
     <div className="car-box">
       <ul className="car-catalog">
-        
-          {filteredCars.map((car) => (
-            <Card key={car.id} car={car} handleClick={handleClick}></Card>
-          ))}
-        
+        {filteredCars.map((car) => (
+          <Card key={car.id} car={car} handleClick={handleClick}></Card>
+        ))}
       </ul>
       {car && <Modal onClose={onClose} car={car}></Modal>}
       {seeLoad && (

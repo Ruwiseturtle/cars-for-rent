@@ -20,6 +20,7 @@ const carsSlice = createSlice({
     builder
       //кейси для отримання каталогу машин одныэъ сторінки
       .addCase(getCarsThunks.pending, (state) => {
+        console.log('status pending машин');
         state.isLoading = true;
         state.error = null;
       })
@@ -28,11 +29,13 @@ const carsSlice = createSlice({
         state.cars = action.payload;
       })
       .addCase(getCarsThunks.rejected, (state, action) => {
+        console.log("status error машин");
         state.isLoading = false;
         state.error = action.payload;
       })
       //кейси для отримання відфільтрованого каталогу машин по бренду
       .addCase(getFilteredCarsThunk.pending, (state) => {
+        console.log("status pending відфільтрованих машин");
         state.isLoading = true;
         state.error = null;
       })
@@ -41,6 +44,7 @@ const carsSlice = createSlice({
         state.cars = [...action.payload];
       })
       .addCase(getFilteredCarsThunk.rejected, (state, action) => {
+        console.log("status error відфільтрованих машин");
         state.isLoading = false;
         state.error = action.payload;
       }),

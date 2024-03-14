@@ -1,5 +1,6 @@
 .containerMain {
   display: block;
+  width: 100%;
   max-width: 1184px;
   margin-left: auto;
   margin-right: auto;
@@ -8,12 +9,9 @@
 }
 
 .main-container {
-  /* border: 1px solid red; */
   position: fixed;
-
   display: block;
   margin-top: 180px;
-  max-width: 1184px;
   height: 100%;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -21,10 +19,8 @@
 }
 
 .scroll-container {
-  /* border: 1px solid green; */
-  /* width: calc(100%+17px); */
-  max-width: calc(1184px+17px);
   height: 100%;
+  max-width: calc(1184px + 17px);
   overflow-y: auto;
   border: none;
   margin-right: -17px;
